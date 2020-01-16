@@ -6,19 +6,23 @@ export var max_speed = 150
 export var gravity = 9.81
 export var rotation_speed = 3
 export var death_height = 1000
+export var damp = 0.98
 
 var velocity = Vector2(0,0)
 var dir = 0
 
 func _physics_process(delta):
 	if Input.is_action_pressed("move_left"):
-		dir += movement_speed
-	if Input.is_action_pressed("move_right"):
 		dir -= movement_speed
-	if Input.is_action_pressed("jump"):
+	if Input.is_action_pressed("move_right"):
+		dir += movement_speed
+	if Input.is_action_pressed("jump") and is_on_floor():
 		velocity.y -= jump_force
 	
 	dir = clamp(dir, -max_speed, max_speed)
+	dir = dir*damp
+	
+	velocity.x = dir
 	
 	rotate(deg2rad(dir*delta*rotation_speed))
 	
