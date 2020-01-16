@@ -1,3 +1,13 @@
-[gd_scene format=2]
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Levels/Obstacles/Platform.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Levels/Level_Base.gd" type="Script" id=2]
 
 [node name="Level_Base" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Start" type="Position2D" parent="."]
+position = Vector2( 128, 128 )
+
+[node name="Platform" parent="." instance=ExtResource( 1 )]
+position = Vector2( 128, 288 )
