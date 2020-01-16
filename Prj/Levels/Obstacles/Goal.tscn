@@ -16,7 +16,7 @@ func _on_Area2D_body_entered(body):
 		if body.is_in_group(\"Player\"):
 			checked = true
 			$AnimationPlayer.play(\"check\")
-			body.get_checkpoint(self)
+			body.level_finished()
 "
 
 [sub_resource type="Animation" id=2]
@@ -30,7 +30,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 32, 48 ), Vector2( 32, 32 ) ]
+"values": [ Vector2( 32, 48 ), Vector2( 32, 12 ) ]
 }
 
 [sub_resource type="Animation" id=3]

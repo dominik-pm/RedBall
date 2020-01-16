@@ -14,5 +14,8 @@ func _ready():
 func new_checkpoint(checkpoint):
 	last_checkpoint = checkpoint
 
+func level_finished():
+	print("level finsished")
+
 func died():
 	player.position = last_checkpoint.position

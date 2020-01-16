@@ -1,9 +1,9 @@
 extends KinematicBody2D
 
-export var jump_force = 500
-export var movement_speed = 15
-export var max_speed = 150
-export var gravity = 9.81
+export var jump_force = 750
+export var movement_speed = 20
+export var max_speed = 200
+export var gravity = 20
 export var rotation_speed = 3
 export var death_height = 1000
 export var damp = 0.98
@@ -37,6 +37,9 @@ func _physics_process(delta):
 
 func get_checkpoint(checkpoint):
 	level.new_checkpoint(checkpoint)
+
+func level_finished():
+	level.level_finished()
 
 func die():
 	print("died!")
