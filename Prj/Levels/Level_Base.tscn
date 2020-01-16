@@ -8,17 +8,11 @@
 [node name="Level_Base" type="Node2D"]
 script = ExtResource( 2 )
 
+[node name="platforms" parent="." instance=ExtResource( 1 )]
+tile_data = PoolIntArray( 262144, 0, 0, 262150, 0, 0, 262156, 0, 0 )
+
 [node name="Start" type="Position2D" parent="."]
 position = Vector2( 128, 128 )
-
-[node name="Platform" parent="." instance=ExtResource( 1 )]
-position = Vector2( 128, 288 )
-
-[node name="Platform2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 512, 288 )
-
-[node name="Platform3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 896, 288 )
 
 [node name="Checkpoint" parent="." instance=ExtResource( 3 )]
 position = Vector2( 128, 192 )
