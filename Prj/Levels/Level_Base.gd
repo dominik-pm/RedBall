@@ -11,6 +11,8 @@ func _ready():
 	
 	player.position = last_checkpoint.position
 
+func new_checkpoint(checkpoint):
+	last_checkpoint = checkpoint
 
 func died():
 	player.position = last_checkpoint.position

@@ -11,6 +11,8 @@ export var damp = 0.98
 var velocity = Vector2(0,0)
 var dir = 0
 
+onready var level = $"../"
+
 func _physics_process(delta):
 	if Input.is_action_pressed("move_left"):
 		dir -= movement_speed
@@ -33,9 +35,12 @@ func _physics_process(delta):
 	
 	velocity = move_and_slide(velocity, Vector2(0, -1))
 
+func get_checkpoint(check_point):
+	level.new_checkpoint(checkpoint)
+
 func die():
 	print("died!")
 	
 	# animation
 	
-	get_parent().died()
+	level.died()
