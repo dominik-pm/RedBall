@@ -35,7 +35,7 @@ func _physics_process(delta):
 	
 	velocity = move_and_slide(velocity, Vector2(0, -1))
 
-func get_checkpoint(check_point):
+func get_checkpoint(checkpoint):
 	level.new_checkpoint(checkpoint)
 
 func die():
