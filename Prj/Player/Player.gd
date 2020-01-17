@@ -53,7 +53,9 @@ func die():
 	var dp = death_particles.instance()
 	get_tree().root.add_child(dp)
 	dp.position = self.position
-	#$player.visible = false
+	dp.emitting = true
+	
+	$player.visible = false
 	
 	yield(get_tree().create_timer(dp.lifetime), "timeout")
 	
