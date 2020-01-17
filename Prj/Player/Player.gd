@@ -1,10 +1,10 @@
 extends KinematicBody2D
 
-export var jump_force = 650
-export var movement_speed = 20
-export var max_speed = 400
-export var gravity = 15
-export var rotation_speed = 3
+export var jump_force = 450
+export var movement_speed = 11
+export var max_speed = 390
+export var gravity = 11
+export var rotation_speed = 2
 export var death_height = 1000
 export var damp = 0.99
 
