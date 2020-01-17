@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://World/Obstacles/TileMap.tscn" type="PackedScene" id=1]
+[ext_resource path="res://World/Level.gd" type="Script" id=2]
+[ext_resource path="res://World/Obstacles/Checkpoint.tscn" type="PackedScene" id=3]
+[ext_resource path="res://World/Obstacles/Goal.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=5]
+
+[node name="Level_Base" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Player" parent="." instance=ExtResource( 5 )]
+position = Vector2( -128, 128 )
+
+[node name="TileMap" parent="." instance=ExtResource( 1 )]
+light_mask = 1
+tile_data = PoolIntArray( 262140, 0, 0 )
+
+[node name="CheckPoints" type="Node2D" parent="."]
+
+[node name="Checkpoint1" parent="CheckPoints" instance=ExtResource( 3 )]
+position = Vector2( -128, 192 )
+
+[node name="Goal" parent="CheckPoints" instance=ExtResource( 4 )]
+position = Vector2( 384, 272 )
+
+[node name="Platforms" type="Node2D" parent="."]
+position = Vector2( 1408, 272 )
+
+[node name="Thorns" type="Node2D" parent="."]
+
+[node name="Obstacles" type="Node2D" parent="."]

@@ -1,13 +1,13 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Levels/Obstacles/TileMap.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Levels/Level_Base.gd" type="Script" id=2]
-[ext_resource path="res://Levels/Obstacles/Checkpoint.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Levels/Obstacles/Goal.tscn" type="PackedScene" id=4]
+[ext_resource path="res://World/Obstacles/TileMap.tscn" type="PackedScene" id=1]
+[ext_resource path="res://World/Level.gd" type="Script" id=2]
+[ext_resource path="res://World/Obstacles/Checkpoint.tscn" type="PackedScene" id=3]
+[ext_resource path="res://World/Obstacles/Goal.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Levels/Obstacles/Swinging_Ball.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Levels/Obstacles/Moving_Platform.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Levels/Obstacles/Thorns.tscn" type="PackedScene" id=8]
+[ext_resource path="res://World/Obstacles/Swinging_Ball.tscn" type="PackedScene" id=6]
+[ext_resource path="res://World/Obstacles/Moving_Platform.tscn" type="PackedScene" id=7]
+[ext_resource path="res://World/Obstacles/Thorns.tscn" type="PackedScene" id=8]
 
 [node name="Level_Base" type="Node2D"]
 script = ExtResource( 2 )

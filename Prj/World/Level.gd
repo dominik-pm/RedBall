@@ -9,8 +9,9 @@ func _ready():
 func new_checkpoint(checkpoint):
 	last_checkpoint = checkpoint
 
-func level_finished():
-	global.level_finished()
-
 func died():
 	player.position = last_checkpoint.position
+	reset_obstacles()
+
+func reset_obstacles():
+	pass

@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=2]
+
+[sub_resource type="GDScript" id=4]
+script/source = "extends KinematicBody2D
+
+export var speed = 1
+export var gravity = 20
+
+var velocity = 0
+var start_pos
+
+func _ready():
+	set_physics_process(false)
+	start_pos = position
+
+func _reset():
+	set_physics_process(false)
+	position = start_pos
+	velocity = 0
+
+func _physics_process(delta):
+	velocity += gravity
+	position.y += velocity*delta*speed
+
+func _on_Area2D_body_entered(body):
+	if body.is_in_group(\"Player\"):
+		set_physics_process(true)
+"
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 192, 16 )
+
+[sub_resource type="CubeMesh" id=3]
+size = Vector3( 384, 32, 2 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 192, 32 )
+
+[node name="Falling_Platform" type="KinematicBody2D"]
+script = SubResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+mesh = SubResource( 3 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 5 )
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
