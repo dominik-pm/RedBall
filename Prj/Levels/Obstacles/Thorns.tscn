@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=2]
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends Node2D
+
+func _on_DeathArea_body_entered(body):
+	if body.is_in_group(\"Player\"):
+		body.die()
+"
+
+[sub_resource type="CubeMesh" id=3]
+size = Vector3( 128, 32, 2 )
+
+[sub_resource type="Gradient" id=4]
+offsets = PoolRealArray( 1 )
+colors = PoolColorArray( 1, 0, 0, 1 )
+
+[sub_resource type="GradientTexture" id=5]
+gradient = SubResource( 4 )
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 64, 16 )
+
+[node name="Thorns" type="Node2D"]
+script = SubResource( 2 )
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+mesh = SubResource( 3 )
+texture = SubResource( 5 )
+
+[node name="DeathArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathArea"]
+shape = SubResource( 1 )
+[connection signal="body_entered" from="DeathArea" to="." method="_on_DeathArea_body_entered"]

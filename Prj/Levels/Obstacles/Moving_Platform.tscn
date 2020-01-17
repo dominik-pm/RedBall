@@ -12,18 +12,26 @@ export var moving_speed = 150
 var dir = 1
 var start_pos
 var end_pos
+var move_up = false
 
 func _ready():
-	start_pos = get_node(Start_Pos_Node).position
-	end_pos = get_node(End_Pos_Node).position
+	start_pos = get_node(Start_Pos_Node).global_position
+	end_pos = get_node(End_Pos_Node).global_position
 	
-	$Platform.position = start_pos
+	if start_pos.x == end_pos.x:
+		move_up = true
+	
+	$Platform.global_position = start_pos
 
 func _process(delta):
-	if $Platform.position > end_pos or $Platform.position < start_pos:
-		dir*=-1
-	
-	$Platform.move_local_x(delta*moving_speed*dir)
+	if move_up:
+		if $Platform.global_position.y < end_pos.y or $Platform.global_position.y > start_pos.y:
+			dir*=-1
+		$Platform.global_position.y += (delta*moving_speed*dir)
+	else:
+		if $Platform.global_position.x > end_pos.x or $Platform.global_position.x < start_pos.x:
+			dir*=-1
+		$Platform.global_position.x += delta*moving_speed*dir
 "
 
 [sub_resource type="RectangleShape2D" id=1]
