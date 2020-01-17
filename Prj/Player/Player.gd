@@ -82,6 +82,8 @@ func die():
 	yield(get_tree().create_timer(dp.lifetime), "timeout")
 	
 	set_physics_process(true)
+	velocity = Vector2(0,0)
+	dir = 0
 	dp.queue_free()
 	$player.visible = true
 	
