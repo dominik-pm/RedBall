@@ -53,6 +53,7 @@ func die():
 	
 	yield(get_tree().create_timer(death_duration), "timeout")
 	
+	set_physics_process(true)
 	$Particles2D.emitting = false
 	$player.visible = true
 	
