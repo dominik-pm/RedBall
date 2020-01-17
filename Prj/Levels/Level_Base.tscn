@@ -17,7 +17,7 @@ position = Vector2( -128, 128 )
 
 [node name="TileMap" parent="." instance=ExtResource( 1 )]
 light_mask = 1
-tile_data = PoolIntArray( 262140, 0, 0, 196610, 0, 0, 196614, 0, 0, 196620, 0, 0, 196638, 0, 0, 262180, 0, 0 )
+tile_data = PoolIntArray( 262140, 0, 0, 196610, 0, 0, 196614, 0, 0, 196620, 0, 0, 196638, 0, 0, 196645, 0, 0 )
 
 [node name="Platforms" type="Node2D" parent="."]
 position = Vector2( 1408, 272 )
