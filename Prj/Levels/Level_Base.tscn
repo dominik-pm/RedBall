@@ -1,53 +1,23 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Levels/Level_Base.gd" type="Script" id=1]
-[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Levels/Obstacles/TileMap.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Levels/Obstacles/Checkpoint.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Levels/Obstacles/Goal.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Levels/Obstacles/TileMap.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Levels/Level_Base.gd" type="Script" id=2]
+[ext_resource path="res://Levels/Obstacles/Checkpoint.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Levels/Obstacles/Goal.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Levels/Obstacles/Swinging_Ball.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Levels/Obstacles/Moving_Platform.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Levels/Obstacles/Thorns.tscn" type="PackedScene" id=8]
 
 [node name="Level_Base" type="Node2D"]
-script = ExtResource( 1 )
+script = ExtResource( 2 )
 
-<<<<<<< HEAD
 [node name="Player" parent="." instance=ExtResource( 5 )]
 position = Vector2( -128, 128 )
-=======
-[node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 128, 128 )
->>>>>>> 6f9a5bd53d05c7857952befa5822dca8f8ea5a11
 
-[node name="TileMap" parent="." instance=ExtResource( 3 )]
+[node name="TileMap" parent="." instance=ExtResource( 1 )]
 light_mask = 1
-tile_data = PoolIntArray( 327676, 0, 0, 262146, 0, 0, 262150, 0, 0, 262156, 0, 0, 262174, 0, 0, 262180, 0, 0 )
-
-[node name="CheckPoints" type="Node2D" parent="."]
-
-<<<<<<< HEAD
-[node name="Start" type="Position2D" parent="CheckPoints"]
-position = Vector2( -128, 128 )
-
-[node name="Checkpoint" parent="CheckPoints" instance=ExtResource( 3 )]
-position = Vector2( -128, 208 )
-
-[node name="Checkpoint2" parent="CheckPoints" instance=ExtResource( 3 )]
-position = Vector2( 2048, 208 )
-=======
-[node name="Checkpoint" parent="." instance=ExtResource( 4 )]
-position = Vector2( 128, 208 )
-
-[node name="Checkpoint2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 512, 208 )
-
-[node name="Goal" parent="." instance=ExtResource( 5 )]
-position = Vector2( 2304, 192 )
->>>>>>> 6f9a5bd53d05c7857952befa5822dca8f8ea5a11
-
-[node name="Goal" parent="CheckPoints" instance=ExtResource( 4 )]
-position = Vector2( 2480, 192 )
+tile_data = PoolIntArray( 262140, 0, 0, 196610, 0, 0, 196614, 0, 0, 196620, 0, 0, 196638, 0, 0, 196645, 0, 0 )
 
 [node name="Platforms" type="Node2D" parent="."]
 position = Vector2( 1408, 272 )
@@ -76,12 +46,27 @@ position = Vector2( 0, -400 )
 Start_Pos_Node = NodePath("../Start1")
 End_Pos_Node = NodePath("../End1")
 
+[node name="CheckPoints" type="Node2D" parent="Platforms"]
+position = Vector2( -1408, -272 )
+
+[node name="Start" type="Position2D" parent="Platforms/CheckPoints"]
+position = Vector2( -128, 128 )
+
+[node name="Checkpoint" parent="Platforms/CheckPoints" instance=ExtResource( 3 )]
+position = Vector2( -128, 192 )
+
+[node name="Checkpoint2" parent="Platforms/CheckPoints" instance=ExtResource( 3 )]
+position = Vector2( 2048, 192 )
+
+[node name="Goal" parent="Platforms/CheckPoints" instance=ExtResource( 4 )]
+position = Vector2( 2480, 176 )
+
 [node name="Thorns" type="Node2D" parent="."]
 
 [node name="Thorns" parent="Thorns" instance=ExtResource( 8 )]
-position = Vector2( 384, 256 )
+position = Vector2( 384, 240 )
 
 [node name="Obstacles" type="Node2D" parent="."]
 
 [node name="Swinging_Ball" parent="Obstacles" instance=ExtResource( 6 )]
-position = Vector2( 896, -64 )
+position = Vector2( 896, -128 )
