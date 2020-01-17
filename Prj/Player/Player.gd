@@ -13,6 +13,11 @@ var dir = 0
 
 onready var level = $"../"
 
+export var death_duration = 2
+
+func _ready():
+	$Particles2D.lifetime = death_duration
+
 func _physics_process(delta):
 	if Input.is_action_pressed("move_left"):
 		dir -= movement_speed
@@ -42,8 +47,13 @@ func level_finished():
 	level.level_finished()
 
 func die():
-	print("died!")
+	set_physics_process(false)
+	$Particles2D.emitting = true
+	$player.visible = false
 	
-	# animation
+	yield(get_tree().create_timer(death_duration), "timeout")
+	
+	$Particles2D.emitting = false
+	$player.visible = true
 	
 	level.died()
