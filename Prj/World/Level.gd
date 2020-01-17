@@ -14,4 +14,15 @@ func died():
 	reset_obstacles()
 
 func reset_obstacles():
-	pass
+	for child in get_children():
+		if child.has_method('reset'):
+			child.reset()
+		elif child.get_child_count() > 0:
+			for subchild in child.get_children():
+				if subchild.has_method('reset'):
+					subchild.reset()
+				elif subchild.get_child_count() > 0:
+					for subsubchild in subchild.get_children():
+						if subsubchild.has_method('reset'):
+							subsubchild.reset()
+			

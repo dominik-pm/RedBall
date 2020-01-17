@@ -6,8 +6,9 @@
 [ext_resource path="res://World/Obstacles/Goal.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://World/Obstacles/Swinging_Ball.tscn" type="PackedScene" id=6]
-[ext_resource path="res://World/Obstacles/Moving_Platform.tscn" type="PackedScene" id=7]
+[ext_resource path="res://World/Obstacles/Moving_Platform_Short.tscn" type="PackedScene" id=7]
 [ext_resource path="res://World/Obstacles/Thorns.tscn" type="PackedScene" id=8]
+
 
 [node name="Level_Base" type="Node2D"]
 script = ExtResource( 2 )

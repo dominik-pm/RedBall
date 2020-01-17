@@ -14,7 +14,7 @@ position = Vector2( -128, 128 )
 
 [node name="TileMap" parent="." instance=ExtResource( 3 )]
 light_mask = 1
-tile_data = PoolIntArray( 262140, 0, 0 )
+tile_data = PoolIntArray( 262141, 4, 0, 196609, 4, 0 )
 
 [node name="CheckPoints" type="Node2D" parent="."]
 
@@ -22,7 +22,7 @@ tile_data = PoolIntArray( 262140, 0, 0 )
 position = Vector2( -128, 192 )
 
 [node name="Goal" parent="CheckPoints" instance=ExtResource( 5 )]
-position = Vector2( 384, 272 )
+position = Vector2( 256, 272 )
 
 [node name="Platforms" type="Node2D" parent="."]
 position = Vector2( 1408, 272 )

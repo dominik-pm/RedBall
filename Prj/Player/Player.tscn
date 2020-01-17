@@ -17,7 +17,6 @@ shape = SubResource( 1 )
 
 [node name="player" type="Sprite" parent="."]
 light_mask = 8
-position = Vector2( -1.43051e-06, -1.43051e-06 )
 scale = Vector2( 0.75, 0.75 )
 texture = ExtResource( 2 )
 

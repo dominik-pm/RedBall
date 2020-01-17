@@ -35,9 +35,9 @@ func _process(delta):
 "
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 192, 16 )
+extents = Vector2( 96, 16 )
 
-[node name="Moving_Platform" type="Node2D"]
+[node name="Moving_Platform_Short" type="Node2D"]
 script = SubResource( 1 )
 
 [node name="Platform" type="KinematicBody2D" parent="."]
@@ -46,4 +46,5 @@ script = SubResource( 1 )
 shape = SubResource( 2 )
 
 [node name="moving_platform" type="Sprite" parent="Platform"]
+scale = Vector2( 0.5, 1 )
 texture = ExtResource( 1 )

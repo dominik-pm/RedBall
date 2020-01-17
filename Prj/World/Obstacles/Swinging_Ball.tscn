@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/Swinging_Ball/wrecking_ball.png" type="Texture" id=1]
 
-[sub_resource type="GDScript" id=2]
+[sub_resource type="GDScript" id=1]
 script/source = "extends Node2D
 
 export var max_rot_angle = 45
@@ -15,8 +15,8 @@ func _physics_process(delta):
 	rotation_degrees = sin(count * delta) * -max_rot_angle * speed
 "
 
-[sub_resource type="CircleShape2D" id=6]
-radius = 64.0
+[sub_resource type="CircleShape2D" id=2]
+radius = 60.0
 
 [sub_resource type="CubeMesh" id=3]
 size = Vector3( 2, 256, 1 )
@@ -29,11 +29,11 @@ colors = PoolColorArray( 0, 0, 0, 1 )
 gradient = SubResource( 4 )
 
 [node name="Swinging_Ball" type="KinematicBody2D"]
-script = SubResource( 2 )
+script = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 256 )
-shape = SubResource( 6 )
+shape = SubResource( 2 )
 
 [node name="Line" type="MeshInstance2D" parent="."]
 position = Vector2( 0, 128 )
@@ -42,5 +42,5 @@ texture = SubResource( 5 )
 
 [node name="Ball" type="Sprite" parent="."]
 position = Vector2( 0, 256 )
-scale = Vector2( 0.5, 0.5 )
+scale = Vector2( 0.469, 0.469 )
 texture = ExtResource( 1 )
