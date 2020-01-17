@@ -53,13 +53,16 @@ height = 48.0
 
 [node name="Checkpoint" type="Node2D"]
 light_mask = 2
+z_index = -2
 script = SubResource( 1 )
 
 [node name="Flag" type="Sprite" parent="."]
+light_mask = 2
 position = Vector2( 32, 48 )
 texture = ExtResource( 1 )
 
 [node name="Pole" type="Sprite" parent="."]
+light_mask = 2
 position = Vector2( 32, 32 )
 texture = ExtResource( 2 )
 

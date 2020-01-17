@@ -9,9 +9,11 @@
 script = ExtResource( 2 )
 
 [node name="Start" type="Position2D" parent="."]
+light_mask = 4
 position = Vector2( 128, 128 )
 
 [node name="TileMap" parent="." instance=ExtResource( 1 )]
+light_mask = 1
 tile_data = PoolIntArray( 262144, 0, 0, 262150, 0, 0, 262156, 0, 0 )
 
 [node name="Checkpoint" parent="." instance=ExtResource( 3 )]
