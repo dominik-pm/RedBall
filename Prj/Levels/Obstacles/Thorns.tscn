@@ -8,6 +8,9 @@ func _on_DeathArea_body_entered(body):
 		body.die()
 "
 
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 64, 16 )
+
 [sub_resource type="CubeMesh" id=3]
 size = Vector3( 128, 32, 2 )
 
@@ -18,18 +21,15 @@ colors = PoolColorArray( 1, 0, 0, 1 )
 [sub_resource type="GradientTexture" id=5]
 gradient = SubResource( 4 )
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 64, 16 )
-
 [node name="Thorns" type="Node2D"]
 script = SubResource( 2 )
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
-mesh = SubResource( 3 )
-texture = SubResource( 5 )
 
 [node name="DeathArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathArea"]
 shape = SubResource( 1 )
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+mesh = SubResource( 3 )
+texture = SubResource( 5 )
 [connection signal="body_entered" from="DeathArea" to="." method="_on_DeathArea_body_entered"]
