@@ -1,13 +1,13 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/platform/Platform.png" type="Texture" id=1]
-[ext_resource path="res://assets/platform/pillar.png" type="Texture" id=2]
+[ext_resource path="res://assets/Pillar/pillar.png" type="Texture" id=2]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 16, 256, 16, 256, 64, 0, 64 )
 
 [sub_resource type="ConvexPolygonShape2D" id=4]
-points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
+points = PoolVector2Array( 32, 32, -96, 32, -96, -96, 32, -96 )
 
 [sub_resource type="TileSet" id=3]
 0/name = "Platform.png 0"
@@ -44,7 +44,7 @@ points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
 1/occluder_offset = Vector2( 0, 0 )
 1/navigation_offset = Vector2( 0, 0 )
 1/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
+"autotile_coord": Vector2( 3, 3 ),
 "one_way": false,
 "one_way_margin": 1.0,
 "shape": SubResource( 4 ),
@@ -57,3 +57,4 @@ light_mask = 4
 tile_set = SubResource( 3 )
 cell_size = Vector2( 32, 32 )
 format = 1
+tile_data = PoolIntArray( 524296, 0, 0 )
