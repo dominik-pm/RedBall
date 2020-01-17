@@ -23,6 +23,7 @@ points = PoolVector2Array( 0, 16, 256, 16, 256, 64, 0, 64 )
 } ]
 0/z_index = 0
 
-[node name="Platform" type="TileMap"]
+[node name="TileMap" type="TileMap"]
+light_mask = 4
 tile_set = SubResource( 2 )
 format = 1

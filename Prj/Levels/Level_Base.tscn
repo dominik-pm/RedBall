@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Levels/Obstacles/Platform.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Levels/Obstacles/TileMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Levels/Level_Base.gd" type="Script" id=2]
 [ext_resource path="res://Levels/Obstacles/Checkpoint.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Levels/Obstacles/Goal.tscn" type="PackedScene" id=4]
@@ -8,17 +8,17 @@
 [node name="Level_Base" type="Node2D"]
 script = ExtResource( 2 )
 
-[node name="platforms" parent="." instance=ExtResource( 1 )]
-tile_data = PoolIntArray( 262144, 0, 0, 262150, 0, 0, 262156, 0, 0 )
-
 [node name="Start" type="Position2D" parent="."]
 position = Vector2( 128, 128 )
 
+[node name="TileMap" parent="." instance=ExtResource( 1 )]
+tile_data = PoolIntArray( 262144, 0, 0, 262150, 0, 0, 262156, 0, 0 )
+
 [node name="Checkpoint" parent="." instance=ExtResource( 3 )]
-position = Vector2( 128, 192 )
+position = Vector2( 128, 208 )
 
 [node name="Checkpoint2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 512, 192 )
+position = Vector2( 512, 208 )
 
 [node name="Goal" parent="." instance=ExtResource( 4 )]
-position = Vector2( 880, 160 )
+position = Vector2( 880, 192 )

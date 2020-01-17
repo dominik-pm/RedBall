@@ -51,6 +51,13 @@ toggle_fullscreen={
  ]
 }
 
+[layer_names]
+
+2d_render/layer_1="Background"
+2d_render/layer_2="Checkpoints"
+2d_render/layer_3="Level"
+2d_render/layer_4="Player"
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"
