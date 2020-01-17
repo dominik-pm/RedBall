@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+var death_particles = preload("res://Player/Death_Particles.tscn")
+
 export var jump_force = 450
 export var movement_speed = 11
 export var max_speed = 390
@@ -13,10 +15,9 @@ var dir = 0
 
 onready var level = $"../"
 
-export var death_duration = 2
-
-func _ready():
-	$Particles2D.lifetime = death_duration
+func _input(event):
+	if event.is_action_pressed("toggle_fullscreen"):
+		OS.window_fullscreen = !OS.window_fullscreen
 
 func _physics_process(delta):
 	if Input.is_action_pressed("move_left"):
@@ -48,13 +49,16 @@ func level_finished():
 
 func die():
 	set_physics_process(false)
-	$Particles2D.emitting = true
-	$player.visible = false
 	
-	yield(get_tree().create_timer(death_duration), "timeout")
+	var dp = death_particles.instance()
+	get_tree().root.add_child(dp)
+	dp.position = self.position
+	#$player.visible = false
+	
+	yield(get_tree().create_timer(dp.lifetime), "timeout")
 	
 	set_physics_process(true)
-	$Particles2D.emitting = false
+	dp.queue_free()
 	$player.visible = true
 	
 	level.died()
