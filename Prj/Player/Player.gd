@@ -4,8 +4,8 @@ var death_particles = preload("res://Player/Death_Particles.tscn")
 
 export var finish_level_duration = 2
 
-export var jump_force = 480
-export var jump_hold_boost = 300
+export var jump_force = 380
+export var jump_hold_boost = 400
 export var jump_hold_boost_duration = 100
 export var jump_bounce_boost = 50
 export var movement_speed = 11
