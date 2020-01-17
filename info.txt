@@ -1,2 +1,2 @@
-we need a second tile that is 50% longer than the current tile
-(moving tiles also have the longer size)
+was nd besser wenn ma für todo's issues in github aufmochn? (Don kennt ma in de commits drauf referenziern wos ma gmocht hod)
+bzw gibts wos extriges für todos in github?
