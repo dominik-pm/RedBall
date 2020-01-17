@@ -2,13 +2,13 @@ extends KinematicBody2D
 
 var death_particles = preload("res://Player/Death_Particles.tscn")
 
-export var jump_force = 450
-export var jump_hold_boost = 200
+export var jump_force = 480
+export var jump_hold_boost = 300
 export var jump_hold_boost_duration = 100
 export var jump_bounce_boost = 50
 export var movement_speed = 11
-export var max_speed = 390
-export var gravity = 11
+export var max_speed = 450
+export var gravity = 18
 export var rotation_speed = 2
 export var death_height = 1000
 export var damp = 0.99
