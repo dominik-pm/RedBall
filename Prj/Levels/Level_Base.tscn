@@ -16,7 +16,7 @@ position = Vector2( 128, 128 )
 
 [node name="TileMap" parent="." instance=ExtResource( 1 )]
 light_mask = 1
-tile_data = PoolIntArray( 262144, 0, 0, 262150, 0, 0, 262156, 0, 0, 262172, 0, 0 )
+tile_data = PoolIntArray( 262144, 0, 0, 262150, 0, 0, 262156, 0, 0, 262172, 0, 0, 262178, 0, 0 )
 
 [node name="Start" type="Position2D" parent="."]
 position = Vector2( 128, 128 )
@@ -28,7 +28,7 @@ position = Vector2( 128, 208 )
 position = Vector2( 512, 208 )
 
 [node name="Goal" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1904, 208 )
+position = Vector2( 2304, 192 )
 
 [node name="Swinging_Ball" parent="." instance=ExtResource( 6 )]
 position = Vector2( 896, -64 )
@@ -39,10 +39,10 @@ position = Vector2( 1408, 272 )
 [node name="Platform1" type="Node2D" parent="Platforms"]
 
 [node name="Start1" type="Position2D" parent="Platforms/Platform1"]
-position = Vector2( -256, 0 )
+position = Vector2( -192, 0 )
 
 [node name="End1" type="Position2D" parent="Platforms/Platform1"]
-position = Vector2( 256, 0 )
+position = Vector2( 320, 0 )
 
 [node name="Moving_Platform" parent="Platforms/Platform1" instance=ExtResource( 7 )]
 Start_Pos_Node = NodePath("../Start1")
