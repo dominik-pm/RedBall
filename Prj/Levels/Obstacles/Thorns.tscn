@@ -1,4 +1,6 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/Spikes/Spikes.png" type="Texture" id=1]
 
 [sub_resource type="GDScript" id=2]
 script/source = "extends Node2D
@@ -11,16 +13,6 @@ func _on_DeathArea_body_entered(body):
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 64, 16 )
 
-[sub_resource type="CubeMesh" id=3]
-size = Vector3( 128, 32, 2 )
-
-[sub_resource type="Gradient" id=4]
-offsets = PoolRealArray( 1 )
-colors = PoolColorArray( 1, 0, 0, 1 )
-
-[sub_resource type="GradientTexture" id=5]
-gradient = SubResource( 4 )
-
 [node name="Thorns" type="Node2D"]
 script = SubResource( 2 )
 
@@ -29,7 +21,6 @@ script = SubResource( 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathArea"]
 shape = SubResource( 1 )
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
-mesh = SubResource( 3 )
-texture = SubResource( 5 )
+[node name="Spikes" type="Sprite" parent="."]
+texture = ExtResource( 1 )
 [connection signal="body_entered" from="DeathArea" to="." method="_on_DeathArea_body_entered"]
