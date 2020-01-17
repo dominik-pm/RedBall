@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=2]
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends Node2D
+
+export (NodePath) var Start_Pos_Node
+export (NodePath) var End_Pos_Node
+export var moving_speed = 150
+
+var dir = 1
+var start_pos
+var end_pos
+
+func _ready():
+	start_pos = get_node(Start_Pos_Node).position
+	end_pos = get_node(End_Pos_Node).position
+	
+	$Platform.position = start_pos
+
+func _process(delta):
+	if $Platform.position > end_pos or $Platform.position < start_pos:
+		dir*=-1
+	
+	$Platform.move_local_x(delta*moving_speed*dir)
+"
+
+[sub_resource type="CubeMesh" id=3]
+size = Vector3( 256, 32, 2 )
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 128, 16 )
+
+[node name="Moving_Platform" type="Node2D"]
+script = SubResource( 2 )
+
+[node name="Platform" type="KinematicBody2D" parent="."]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform"]
+mesh = SubResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+shape = SubResource( 1 )
