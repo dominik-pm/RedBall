@@ -2,8 +2,8 @@
 
 [ext_resource path="res://World/Level_Base.tscn" type="PackedScene" id=1]
 [ext_resource path="res://World/Obstacles/Checkpoint.tscn" type="PackedScene" id=2]
-[ext_resource path="res://World/Obstacles/Swinging_Ball.tscn" type="PackedScene" id=3]
-[ext_resource path="res://World/Obstacles/Moving_Platform_Short.tscn" type="PackedScene" id=4]
+[ext_resource path="res://World/Obstacles/Moving_Platform_Short.tscn" type="PackedScene" id=3]
+[ext_resource path="res://World/Obstacles/Swinging_Ball.tscn" type="PackedScene" id=4]
 
 [node name="Level_2" instance=ExtResource( 1 )]
 
@@ -33,10 +33,10 @@ position = Vector2( -96, 0 )
 [node name="end1" type="Position2D" parent="Platforms/Platform1" index="1"]
 position = Vector2( 288, 0 )
 
-[node name="Moving_Platform" parent="Platforms/Platform1" index="2" instance=ExtResource( 4 )]
+[node name="Moving_Platform" parent="Platforms/Platform1" index="2" instance=ExtResource( 3 )]
 position = Vector2( 64, 0 )
 Start_Pos_Node = NodePath("../../../../Level_2/Platforms/Platform1/start1")
 End_Pos_Node = NodePath("../../../../Level_2/Platforms/Platform1/end1")
 
-[node name="Swinging_Ball" parent="Obstacles" index="0" instance=ExtResource( 3 )]
+[node name="Swinging_Ball" parent="Obstacles" index="0" instance=ExtResource( 4 )]
 position = Vector2( 704, -96 )
