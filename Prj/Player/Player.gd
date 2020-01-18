@@ -25,9 +25,15 @@ var can_bounce = true
 
 onready var level = $"../"
 
+func reset():
+	velocity = Vector2(0,0)
+	dir = 0
+
 func _input(event):
 	if event.is_action_pressed("toggle_fullscreen"):
 		OS.window_fullscreen = !OS.window_fullscreen
+	if event.is_action_pressed("restart"):
+		level.died()
 
 func _physics_process(delta):
 	if !level_finished:
@@ -56,6 +62,8 @@ func _physics_process(delta):
 	
 	dir = clamp(dir, -max_speed, max_speed)
 	dir = dir*damp
+	if abs(dir) < movement_speed/2:
+		dir = 0
 	
 	velocity.x = dir
 	
@@ -96,8 +104,6 @@ func die():
 		yield(get_tree().create_timer(dp.lifetime), "timeout")
 		
 		set_physics_process(true)
-		velocity = Vector2(0,0)
-		dir = 0
 		dp.queue_free()
 		$player.visible = true
 		

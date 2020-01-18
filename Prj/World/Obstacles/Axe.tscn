@@ -24,25 +24,25 @@ func _on_Area2D_body_entered(body):
 		body.die()
 "
 
-[sub_resource type="CircleShape2D" id=5]
+[sub_resource type="CircleShape2D" id=2]
 radius = 8.0
 
-[sub_resource type="CubeMesh" id=2]
+[sub_resource type="CubeMesh" id=3]
 size = Vector3( 2, 256, 1 )
 
-[sub_resource type="Gradient" id=3]
+[sub_resource type="Gradient" id=4]
 offsets = PoolRealArray( 0 )
 colors = PoolColorArray( 0, 0, 0, 1 )
 
-[sub_resource type="GradientTexture" id=4]
-gradient = SubResource( 3 )
+[sub_resource type="GradientTexture" id=5]
+gradient = SubResource( 4 )
 
 [node name="Axe" type="KinematicBody2D"]
 script = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 256 )
-shape = SubResource( 5 )
+shape = SubResource( 2 )
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -51,8 +51,8 @@ polygon = PoolVector2Array( -64, 192, -48, 192, -48, 208, -32, 224, -16, 240, 0,
 
 [node name="Line" type="MeshInstance2D" parent="."]
 position = Vector2( 0, 128 )
-mesh = SubResource( 2 )
-texture = SubResource( 4 )
+mesh = SubResource( 3 )
+texture = SubResource( 5 )
 
 [node name="axe" type="Sprite" parent="."]
 position = Vector2( 0, 256 )

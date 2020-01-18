@@ -1,7 +1,7 @@
 extends Node
 
 var level_count = 4
-var current_level = 3
+var current_level = 4
 
 var level_path = "World/Levels/"
 var testing = false
