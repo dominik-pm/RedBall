@@ -1,14 +1,10 @@
 extends Node
 
 var level_count = 4
-var current_level = 4
+var current_level = 3
 
 var level_path = "World/Levels/"
-<<<<<<< HEAD
-var testing = !true
-=======
 var testing = false
->>>>>>> 7d64c4965eea63b31d8dd8835aacd05c26f2b27c
 
 func _ready():
 	if testing:

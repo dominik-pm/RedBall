@@ -24,6 +24,5 @@ shape = SubResource( 2 )
 
 [node name="Spikes" type="Sprite" parent="."]
 position = Vector2( 2.38419e-06, 0 )
-scale = Vector2( 1.5, 1 )
 texture = ExtResource( 1 )
 [connection signal="body_entered" from="DeathArea" to="." method="_on_DeathArea_body_entered"]

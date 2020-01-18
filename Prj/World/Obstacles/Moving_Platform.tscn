@@ -40,7 +40,8 @@ extents = Vector2( 192, 16 )
 [node name="Moving_Platform" type="Node2D"]
 script = SubResource( 1 )
 
-[node name="Platform" type="KinematicBody2D" parent="."]
+[node name="Platform" type="RigidBody2D" parent="."]
+mode = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
 shape = SubResource( 2 )
