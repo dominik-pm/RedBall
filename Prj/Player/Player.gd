@@ -19,6 +19,7 @@ var velocity = Vector2(0,0)
 var dir = 0
 var level_finished = false
 var jumpcount = 0
+var dying = false
 var jump_hold = false
 var can_bounce = true
 
@@ -81,7 +82,8 @@ func level_finished():
 	global.level_finished()
 
 func die():
-	if !level_finished:
+	if !level_finished and !dying:
+		dying = true
 		set_physics_process(false)
 		
 		var dp = death_particles.instance()
@@ -100,3 +102,4 @@ func die():
 		$player.visible = true
 		
 		level.died()
+		dying = false
