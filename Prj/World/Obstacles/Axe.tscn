@@ -1,6 +1,6 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://assets/Swinging_Ball/wrecking_ball.png" type="Texture" id=1]
+[ext_resource path="res://assets/Axe/axe.png" type="Texture" id=1]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Node2D
@@ -24,43 +24,38 @@ func _on_Area2D_body_entered(body):
 		body.die()
 "
 
-[sub_resource type="CircleShape2D" id=2]
-radius = 64.0
+[sub_resource type="CircleShape2D" id=5]
+radius = 8.0
 
-[sub_resource type="CubeMesh" id=3]
+[sub_resource type="CubeMesh" id=2]
 size = Vector3( 2, 256, 1 )
 
-[sub_resource type="Gradient" id=4]
+[sub_resource type="Gradient" id=3]
 offsets = PoolRealArray( 0 )
 colors = PoolColorArray( 0, 0, 0, 1 )
 
-[sub_resource type="GradientTexture" id=5]
-gradient = SubResource( 4 )
-
-[sub_resource type="CircleShape2D" id=6]
-radius = 65.0
+[sub_resource type="GradientTexture" id=4]
+gradient = SubResource( 3 )
 
 [node name="Axe" type="KinematicBody2D"]
 script = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 256 )
-shape = SubResource( 2 )
-
-[node name="Line" type="MeshInstance2D" parent="."]
-position = Vector2( 0, 128 )
-mesh = SubResource( 3 )
-texture = SubResource( 5 )
-
-[node name="Ball" type="Sprite" parent="."]
-modulate = Color( 0.960784, 0.0941176, 0.0941176, 1 )
-position = Vector2( 0, 256 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 1 )
+shape = SubResource( 5 )
 
 [node name="Area2D" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PoolVector2Array( -64, 192, -48, 192, -48, 208, -32, 224, -16, 240, 0, 240, 16, 240, 32, 224, 48, 208, 48, 192, 64, 192, 64, 224, 64, 304, 64, 320, 48, 320, 48, 304, 32, 288, 16, 272, 0, 272, -16, 272, -32, 288, -48, 304, -48, 320, -64, 320 )
+
+[node name="Line" type="MeshInstance2D" parent="."]
+position = Vector2( 0, 128 )
+mesh = SubResource( 2 )
+texture = SubResource( 4 )
+
+[node name="axe" type="Sprite" parent="."]
 position = Vector2( 0, 256 )
-shape = SubResource( 6 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
