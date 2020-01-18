@@ -1,10 +1,16 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://World/Level_Base.tscn" type="PackedScene" id=1]
+<<<<<<< HEAD
 [ext_resource path="res://World/Obstacles/Falling_Platform.tscn" type="PackedScene" id=2]
 [ext_resource path="res://World/Obstacles/Axe.tscn" type="PackedScene" id=3]
 [ext_resource path="res://World/Obstacles/Checkpoint.tscn" type="PackedScene" id=4]
 [ext_resource path="res://World/Obstacles/Stomper.tscn" type="PackedScene" id=5]
+=======
+[ext_resource path="res://World/Obstacles/Checkpoint.tscn" type="PackedScene" id=2]
+[ext_resource path="res://World/Obstacles/Falling_Platform.tscn" type="PackedScene" id=3]
+[ext_resource path="res://World/Obstacles/Axe.tscn" type="PackedScene" id=4]
+>>>>>>> b3fff99a42d145977f03031975841a94bf3fcece
 
 [node name="Level_4" index="0" instance=ExtResource( 1 )]
 position = Vector2( 1, 0 )
@@ -19,15 +25,16 @@ tile_data = PoolIntArray( 262141, 9, 0, 262142, 10, 0, 262143, 10, 0, 196616, 3,
 [node name="Checkpoint1" parent="CheckPoints" index="0"]
 position = Vector2( -1745, 576 )
 
-[node name="Checkpoint2" parent="CheckPoints" index="1" instance=ExtResource( 4 )]
+[node name="Checkpoint2" parent="CheckPoints" index="1" instance=ExtResource( 2 )]
 position = Vector2( -129, 192 )
 
 [node name="Goal" parent="CheckPoints" index="2"]
 position = Vector2( 1919, 272 )
 
-[node name="Falling_Platform" parent="Platforms" index="0" instance=ExtResource( 2 )]
+[node name="Falling_Platform" parent="Platforms" index="0" instance=ExtResource( 3 )]
 position = Vector2( -1153, 0 )
 
+<<<<<<< HEAD
 [node name="Stomper" parent="Obstacles" index="0" instance=ExtResource( 5 )]
 position = Vector2( -1409, 640 )
 
@@ -42,5 +49,11 @@ position = Vector2( -865, 640 )
 position = Vector2( 1023, -96 )
 
 [node name="Axe2" parent="Obstacles" index="4" instance=ExtResource( 3 )]
+=======
+[node name="Axe" parent="Obstacles" index="0" instance=ExtResource( 4 )]
+position = Vector2( 1023, -96 )
+
+[node name="Axe2" parent="Obstacles" index="1" instance=ExtResource( 4 )]
+>>>>>>> b3fff99a42d145977f03031975841a94bf3fcece
 position = Vector2( 1599, -96 )
 start_different_dir = true
