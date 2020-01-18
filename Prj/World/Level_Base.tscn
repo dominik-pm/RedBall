@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://World/Level.gd" type="Script" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://World/Obstacles/TileMap.tscn" type="PackedScene" id=3]
 [ext_resource path="res://World/Obstacles/Checkpoint.tscn" type="PackedScene" id=4]
 [ext_resource path="res://World/Obstacles/Goal.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/Background/BG.png" type="Texture" id=6]
 
 [node name="Level_Base" type="Node2D"]
 script = ExtResource( 1 )
@@ -30,3 +31,13 @@ position = Vector2( 1408, 272 )
 [node name="Thorns" type="Node2D" parent="."]
 
 [node name="Obstacles" type="Node2D" parent="."]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.1, 0.1 )
+motion_mirroring = Vector2( 1000, 1000 )
+
+[node name="Sky" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource( 6 )
+centered = false

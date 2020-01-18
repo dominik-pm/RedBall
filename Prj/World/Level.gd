@@ -5,6 +5,7 @@ var last_checkpoint
 
 func _ready():
 	player = $Player
+	last_checkpoint = $CheckPoints/Checkpoint1
 
 func new_checkpoint(checkpoint):
 	last_checkpoint = checkpoint
