@@ -4,7 +4,7 @@ var level_count = 4
 var current_level = 4
 
 var level_path = "World/Levels/"
-var testing = true
+var testing = false
 
 func _ready():
 	if testing:
