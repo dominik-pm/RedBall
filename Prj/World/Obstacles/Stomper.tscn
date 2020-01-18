@@ -36,25 +36,22 @@ func _physics_process(delta):
 func _on_DeathArea_body_entered(body):
 	if body.is_in_group(\"Player\"):
 		body.die()
-
-func reset():
-	pass
 "
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 32, 256 )
 
-[sub_resource type="QuadMesh" id=2]
-
 [sub_resource type="QuadMesh" id=3]
+
+[sub_resource type="QuadMesh" id=4]
 size = Vector2( 192, 64 )
 
-[sub_resource type="Gradient" id=4]
+[sub_resource type="Gradient" id=5]
 offsets = PoolRealArray( 0 )
 colors = PoolColorArray( 0.726563, 0.0964966, 0.0964966, 1 )
 
-[sub_resource type="GradientTexture" id=5]
-gradient = SubResource( 4 )
+[sub_resource type="GradientTexture" id=6]
+gradient = SubResource( 5 )
 
 [node name="Stomper" type="RigidBody2D"]
 mass = 1000.0
@@ -63,17 +60,17 @@ script = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -320 )
-shape = SubResource( 6 )
+shape = SubResource( 2 )
 
 [node name="Handle" type="MeshInstance2D" parent="."]
 position = Vector2( 0, -320 )
 scale = Vector2( 64, 512 )
-mesh = SubResource( 2 )
+mesh = SubResource( 3 )
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
 position = Vector2( 0, -32 )
-mesh = SubResource( 3 )
-texture = SubResource( 5 )
+mesh = SubResource( 4 )
+texture = SubResource( 6 )
 
 [node name="DeathArea" type="Area2D" parent="."]
 position = Vector2( 0, -32 )

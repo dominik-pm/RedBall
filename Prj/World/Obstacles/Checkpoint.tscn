@@ -14,9 +14,12 @@ func _ready():
 func _on_Area2D_body_entered(body):
 	if !checked:
 		if body.is_in_group(\"Player\"):
-			checked = true
-			$AnimationPlayer.play(\"check\")
+			flag()
 			body.get_checkpoint(self)
+
+func flag():
+	checked = true
+	$AnimationPlayer.play(\"check\")
 "
 
 [sub_resource type="CapsuleShape2D" id=2]

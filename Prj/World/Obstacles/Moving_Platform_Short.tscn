@@ -1,49 +1,24 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/moving_platform/moving_platform_short.png" type="Texture" id=1]
+[ext_resource path="res://World/Obstacles/Moving_Platform.gd" type="Script" id=2]
 
-[sub_resource type="GDScript" id=1]
-script/source = "extends Node2D
-
-export (NodePath) var Start_Pos_Node
-export (NodePath) var End_Pos_Node
-export var moving_speed = 150
-
-var dir = 1
-var start_pos
-var end_pos
-var move_up = false
-
-func _ready():
-	start_pos = get_node(Start_Pos_Node).global_position
-	end_pos = get_node(End_Pos_Node).global_position
-	
-	if start_pos.x == end_pos.x:
-		move_up = true
-	
-	$Platform.global_position = start_pos
-
-func _process(delta):
-	if move_up:
-		if $Platform.global_position.y < end_pos.y or $Platform.global_position.y > start_pos.y:
-			dir*=-1
-		$Platform.global_position.y += (delta*moving_speed*dir)
-	else:
-		if $Platform.global_position.x > end_pos.x or $Platform.global_position.x < start_pos.x:
-			dir*=-1
-		$Platform.global_position.x += delta*moving_speed*dir
-"
-
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 96, 16 )
 
 [node name="Moving_Platform_Short" type="Node2D"]
-script = SubResource( 1 )
+script = ExtResource( 2 )
 
 [node name="Platform" type="KinematicBody2D" parent="."]
+motion/sync_to_physics = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
-[node name="moving_platform" type="Sprite" parent="."]
+[node name="moving_platform" type="Sprite" parent="Platform"]
 texture = ExtResource( 1 )
+
+[node name="MoveTween" type="Tween" parent="."]
+repeat = true
+playback_process_mode = 0
+playback/repeat = true

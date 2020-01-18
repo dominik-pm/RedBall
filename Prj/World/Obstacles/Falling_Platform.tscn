@@ -4,7 +4,7 @@
 script/source = "extends KinematicBody2D
 
 export var speed = 1
-export var gravity = 10
+export var gravity = 20
 
 var velocity = 0
 var start_pos
@@ -13,10 +13,10 @@ func _ready():
 	set_physics_process(false)
 	start_pos = position
 
-func reset():
-	set_physics_process(false)
-	position = start_pos
-	velocity = 0
+#func reset():
+#	set_physics_process(false)
+#	position = start_pos
+#	velocity = 0
 
 func _physics_process(delta):
 	velocity += gravity

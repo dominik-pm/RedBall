@@ -16,7 +16,7 @@ func _on_Area2D_body_entered(body):
 		if body.is_in_group(\"Player\"):
 			checked = true
 			$AnimationPlayer.play(\"check\")
-			body.level_finished()
+			body.finish()
 "
 
 [sub_resource type="CapsuleShape2D" id=2]

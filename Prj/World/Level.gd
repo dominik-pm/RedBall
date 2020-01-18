@@ -1,29 +1,35 @@
 extends Node2D
 
-var player
-var last_checkpoint
+var player = preload("res://Player/Player.tscn")
 
 func _ready():
-	player = $Player
-	last_checkpoint = $CheckPoints/Checkpoint1
+	flag_checkpoints()
+	
+	player = player.instance()
+	add_child(player)
+	player.position = get_checkpoint(global.current_checkpoint).position
 
-func new_checkpoint(checkpoint):
-	last_checkpoint = checkpoint
+func restart():
+	global.restart_level()
 
 func died():
-	player.position = last_checkpoint.position
-	reset_obstacles()
+	restart()
 
-func reset_obstacles():
-	for child in get_children():
-		if child.has_method('reset'):
-			child.reset()
-		elif child.get_child_count() > 0:
-			for subchild in child.get_children():
-				if subchild.has_method('reset'):
-					subchild.reset()
-				elif subchild.get_child_count() > 0:
-					for subsubchild in subchild.get_children():
-						if subsubchild.has_method('reset'):
-							subsubchild.reset()
-			
+func new_checkpoint(cp):
+	global.current_checkpoint = get_checkpoint_index(cp)
+
+func flag_checkpoints():
+	for i in range(0, global.current_checkpoint+1):
+		$CheckPoints.get_child(i).flag()
+
+func get_checkpoint(index : int):
+	var checkpoints = $CheckPoints.get_children()
+	return checkpoints[index]
+
+func get_checkpoint_index(checkpoint):
+	var all = $CheckPoints.get_children()
+	for i in range(0, all.size()):
+		if all[i] == checkpoint:
+			return i
+	print("new checkpoint not found")
+	return 0
