@@ -4,7 +4,7 @@
 script/source = "extends KinematicBody2D
 
 export var speed = 1
-export var gravity = 20
+export var gravity = 10
 
 var velocity = 0
 var start_pos
