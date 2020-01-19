@@ -20,12 +20,15 @@ var velocity = Vector2(0,0)
 var dir = 0
 var level_finished = false
 var jumpcount = 0
+var is_grounded = false
 var dying = false
 var is_jumping = false
 var jump_hold = false
 var can_bounce = true
 
 onready var level = $"../"
+onready var ray = $FloorRay
+onready var sprite = $player
 
 func reset():
 	velocity = Vector2(0,0)
@@ -53,13 +56,18 @@ func _physics_process(delta):
 		if is_on_floor() and velocity.y >= 0:
 			is_jumping = false
 		
-		if Input.is_action_pressed("jump") and is_on_floor():
+		if ray.get_collider() != null:
+			is_grounded = true
+		else:
+			is_grounded = false
+		
+		if Input.is_action_pressed("jump") and is_grounded and not is_jumping:
 			if can_bounce:
 				velocity.y -= jump_bounce_boost
 			velocity.y -= jump_force
 			jumpcount = 0
 			jump_hold = true
-			is_jumping
+			is_jumping = true
 		
 		if Input.is_action_pressed("jump"):
 			can_bounce = true
@@ -73,7 +81,7 @@ func _physics_process(delta):
 	
 	velocity.x = dir
 	
-	rotate(deg2rad(dir*delta*rotation_speed))
+	sprite.rotate(deg2rad(dir*delta*rotation_speed))
 	
 	if !is_on_floor():
 		velocity.y += gravity

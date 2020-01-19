@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://CurvedCollisionShape.gd" type="Script" id=1]
+[ext_resource path="res://World/Level_Base.tscn" type="PackedScene" id=2]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 0, 0, -69.4047, -34.3425, 69.4047, 34.3425, 192, 512, -54.2902, 33.9459, 54.2902, -33.9459, 384, 512, 0, 0, 0, 0, 512, 384, 0, 0, 0, 0, 512, 640, 0, 0, 0, 0, -128, 640, 0, 0, 0, 0, -128, 0, 0, 0, 0, 0, 0, 0 )
+}
+
+[sub_resource type="QuadMesh" id=2]
+
+[node name="Level_6" index="0" instance=ExtResource( 2 )]
+
+[node name="TileMap" parent="." index="0"]
+tile_data = PoolIntArray( -65534, 3, 0 )
+
+[node name="Checkpoint1" parent="CheckPoints" index="0"]
+position = Vector2( -720, -64 )
+
+[node name="Goal" parent="CheckPoints" index="1"]
+position = Vector2( 464, 16 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Platforms" index="0"]
+position = Vector2( -2048, -272 )
+script = ExtResource( 1 )
+
+[node name="Path2D" type="Path2D" parent="Platforms/StaticBody2D" index="0"]
+curve = SubResource( 1 )
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Platforms/StaticBody2D" index="1"]
+position = Vector2( -64, 128 )
+scale = Vector2( 128, 256 )
+mesh = SubResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platforms/StaticBody2D" index="2"]
