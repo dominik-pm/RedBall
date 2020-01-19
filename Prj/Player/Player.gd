@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 var death_particles = preload("res://Player/Death_Particles.tscn")
 
-export var finish_level_duration = 2
+export var finish_level_duration = 1.8
 
 export var jump_force = 370
 export var jump_hold_boost = 420
@@ -43,6 +43,7 @@ func _input(event):
 		level.restart()
 
 func _physics_process(delta):
+		
 	if !level_finished:
 		if Input.is_action_pressed("move_left"):
 			dir -= movement_speed
@@ -66,7 +67,7 @@ func _physics_process(delta):
 		
 		if Input.is_action_pressed("jump") and is_grounded and not is_jumping:
 			if can_bounce:
-				velocity.y -= jump_bounce_boost
+				velocity.y -= jump_bounce_boost 
 			velocity.y -= jump_force
 			jumpcount = 0
 			jump_hold = true
