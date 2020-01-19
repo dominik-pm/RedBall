@@ -14,6 +14,7 @@ export var gravity = 18
 export var rotation_speed = 2
 export var death_height = 1000
 export var level_finished_damp = 0.99
+export var rotation_fade_speed = 0.1
 
 const UP = Vector2(0, -1)
 var velocity = Vector2(0,0)
@@ -25,7 +26,7 @@ var dying = false
 var is_jumping = false
 var jump_hold = false
 var can_bounce = true
-var rotation_fade = 0
+var actual_rotation_speed = 0
 
 onready var level = $"../"
 onready var ray = $FloorRay
@@ -85,13 +86,13 @@ func _physics_process(delta):
 	
 	if is_grounded:
 		sprite.rotate(deg2rad(dir*delta*rotation_speed))
-		rotation_fade = dir*delta*rotation_speed
+		actual_rotation_speed = dir*delta*rotation_speed
 	else:
-		sprite.rotate(deg2rad(rotation_fade))
-		if rotation_fade >= 0:
-			rotation_fade -= 0.1
+		sprite.rotate(deg2rad(actual_rotation_speed))
+		if actual_rotation_speed >= 0:
+			actual_rotation_speed -= rotation_fade_speed
 		else:
-			rotation_fade += 0.1
+			actual_rotation_speed += rotation_fade_speed
 	
 	if !is_on_floor():
 		velocity.y += gravity
