@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://World/Level_Base.tscn" type="PackedScene" id=1]
-[ext_resource path="res://World/Obstacles/Thorns.tscn" type="PackedScene" id=2]
+[ext_resource path="res://World/Obstacles/Checkpoint.tscn" type="PackedScene" id=2]
 [ext_resource path="res://World/Obstacles/Moving_Platform.tscn" type="PackedScene" id=3]
-[ext_resource path="res://World/Obstacles/Checkpoint.tscn" type="PackedScene" id=4]
+[ext_resource path="res://World/Obstacles/Thorns.tscn" type="PackedScene" id=4]
 
 [node name="Level_3" instance=ExtResource( 1 )]
 
@@ -13,7 +13,7 @@ tile_data = PoolIntArray( -589822, 5, 0, -589819, 5, 0, -589816, 5, 0, -589813, 
 [node name="Checkpoint1" parent="CheckPoints" index="0"]
 position = Vector2( -320, 192 )
 
-[node name="Checkpoint2" parent="CheckPoints" index="1" instance=ExtResource( 4 )]
+[node name="Checkpoint2" parent="CheckPoints" index="1" instance=ExtResource( 2 )]
 position = Vector2( 640, -192 )
 
 [node name="Goal" parent="CheckPoints" index="2"]
@@ -37,11 +37,11 @@ move_to = NodePath("../End")
 [node name="End" type="Position2D" parent="Platforms/Platform2" index="1"]
 position = Vector2( 0, -384 )
 
-[node name="Thorns" parent="Thorns" index="0" instance=ExtResource( 2 )]
+[node name="Thorns" parent="Thorns" index="0" instance=ExtResource( 4 )]
 position = Vector2( 416, 240 )
 
-[node name="Thorns2" parent="Thorns" index="1" instance=ExtResource( 2 )]
+[node name="Thorns2" parent="Thorns" index="1" instance=ExtResource( 4 )]
 position = Vector2( 416, -144 )
 
-[node name="Thorns3" parent="Thorns" index="2" instance=ExtResource( 2 )]
+[node name="Thorns3" parent="Thorns" index="2" instance=ExtResource( 4 )]
 position = Vector2( 416, -528 )
