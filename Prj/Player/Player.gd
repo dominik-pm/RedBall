@@ -25,6 +25,7 @@ var dying = false
 var is_jumping = false
 var jump_hold = false
 var can_bounce = true
+var rotation_fade = 0
 
 onready var level = $"../"
 onready var ray = $FloorRay
@@ -60,6 +61,7 @@ func _physics_process(delta):
 			is_grounded = true
 		else:
 			is_grounded = false
+	
 		
 		if Input.is_action_pressed("jump") and is_grounded and not is_jumping:
 			if can_bounce:
@@ -81,7 +83,15 @@ func _physics_process(delta):
 	
 	velocity.x = dir
 	
-	sprite.rotate(deg2rad(dir*delta*rotation_speed))
+	if is_grounded:
+		sprite.rotate(deg2rad(dir*delta*rotation_speed))
+		rotation_fade = dir*delta*rotation_speed
+	else:
+		sprite.rotate(deg2rad(rotation_fade))
+		if rotation_fade >= 0:
+			rotation_fade -= 0.1
+		else:
+			rotation_fade += 0.1
 	
 	if !is_on_floor():
 		velocity.y += gravity
