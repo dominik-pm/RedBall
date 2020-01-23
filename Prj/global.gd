@@ -1,8 +1,14 @@
 extends Node
 
+<<<<<<< HEAD
 var level_count = 4
 var current_level = 6
 const UNIT_SIZE = 64
+=======
+var level_count = 6
+var current_level = 1
+const UNIT_SIZE = 16
+>>>>>>> 65216d2377ec3f7d4617b3e21c075e55ebbe4238
 
 var current_checkpoint = 0
 

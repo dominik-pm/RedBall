@@ -2,18 +2,19 @@ extends KinematicBody2D
 
 var death_particles = preload("res://Player/Death_Particles.tscn")
 
-export var finish_level_duration = 2
+export var finish_level_duration = 1.8
 
-export var jump_force = 380
-export var gravity = 18
-export var jump_hold_boost = 400
+export var jump_force = 370
+export var jump_hold_boost = 420
 export var jump_hold_boost_duration = 100
 export var jump_bounce_boost = 50
-export var movement_speed = 11
-export var max_speed = 450
+export var movement_speed = 15
+export var max_speed = 550
+export var gravity = 18
 export var rotation_speed = 2
 export var death_height = 1000
 export var level_finished_damp = 0.99
+export var rotation_fade_speed = 0.2
 
 const UP = Vector2(0, -1)
 var velocity = Vector2(0,0)
@@ -25,6 +26,7 @@ var dying = false
 var is_jumping = false
 var jump_hold = false
 var can_bounce = true
+var actual_rotation_speed = 0
 
 onready var level = $"../"
 onready var ray = $FloorRay
@@ -42,6 +44,7 @@ func _input(event):
 			level.restart()
 
 func _physics_process(delta):
+		
 	if !level_finished:
 		if Input.is_action_pressed("move_left"):
 			dir -= movement_speed
@@ -61,10 +64,11 @@ func _physics_process(delta):
 			is_grounded = true
 		else:
 			is_grounded = false
+	
 		
 		if Input.is_action_pressed("jump") and is_grounded and not is_jumping:
 			if can_bounce:
-				velocity.y -= jump_bounce_boost
+				velocity.y -= jump_bounce_boost 
 			velocity.y -= jump_force
 			jumpcount = 0
 			jump_hold = true
@@ -82,7 +86,15 @@ func _physics_process(delta):
 	
 	velocity.x = dir
 	
-	sprite.rotate(deg2rad(dir*delta*rotation_speed))
+	if is_grounded:
+		sprite.rotate(deg2rad(dir*delta*rotation_speed))
+		actual_rotation_speed = dir*delta*rotation_speed
+	else:
+		sprite.rotate(deg2rad(actual_rotation_speed))
+		if actual_rotation_speed >= 0:
+			actual_rotation_speed -= rotation_fade_speed
+		else:
+			actual_rotation_speed += rotation_fade_speed
 	
 	if !is_on_floor():
 		velocity.y += gravity
