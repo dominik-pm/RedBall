@@ -33,6 +33,5 @@ motion_scale = Vector2( 0.1, 0.1 )
 motion_mirroring = Vector2( 1000, 1000 )
 
 [node name="Sky" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-visible = false
 texture = ExtResource( 5 )
 centered = false

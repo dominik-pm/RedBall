@@ -5,12 +5,12 @@ var death_particles = preload("res://Player/Death_Particles.tscn")
 export var finish_level_duration = 2
 
 export var jump_force = 380
+export var gravity = 18
 export var jump_hold_boost = 400
 export var jump_hold_boost_duration = 100
 export var jump_bounce_boost = 50
 export var movement_speed = 11
 export var max_speed = 450
-export var gravity = 18
 export var rotation_speed = 2
 export var death_height = 1000
 export var level_finished_damp = 0.99
@@ -38,7 +38,8 @@ func _input(event):
 	if event.is_action_pressed("toggle_fullscreen"):
 		OS.window_fullscreen = !OS.window_fullscreen
 	if event.is_action_pressed("restart"):
-		level.restart()
+		if not dying:
+			level.restart()
 
 func _physics_process(delta):
 	if !level_finished:
@@ -68,7 +69,7 @@ func _physics_process(delta):
 			jumpcount = 0
 			jump_hold = true
 			is_jumping = true
-		
+
 		if Input.is_action_pressed("jump"):
 			can_bounce = true
 		else:
