@@ -1,7 +1,7 @@
 extends Node
 
 var level_count = 4
-var current_level = 6
+var current_level = 3
 const UNIT_SIZE = 64
 
 var current_checkpoint = 0
