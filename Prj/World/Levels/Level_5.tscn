@@ -79,7 +79,6 @@ position = Vector2( 8, 8 )
 
 [node name="RigidBodySmallBall" type="RigidBody2D" parent="Obstacles/Node2D" index="0"]
 position = Vector2( 0, -2 )
-mode = 1
 mass = 25.0
 physics_material_override = SubResource( 1 )
 can_sleep = false
@@ -91,7 +90,6 @@ shape = SubResource( 2 )
 [node name="MeshInstance2D" type="MeshInstance2D" parent="Obstacles/Node2D/RigidBodySmallBall" index="1"]
 position = Vector2( 1136, -16 )
 mesh = SubResource( 3 )
-texture = ExtResource( 4 )
 
 [node name="RigidBodyFatBall" type="RigidBody2D" parent="Obstacles/Node2D" index="1"]
 position = Vector2( 102, -186 )
