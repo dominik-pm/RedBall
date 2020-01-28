@@ -1,8 +1,8 @@
 extends Node2D
 
 export (NodePath) var move_to
-export var moving_speed = 10.0
-const IDLE_DURATION = 0.0
+export var moving_speed = 3.0
+const IDLE_DURATION = 0.5
 
 onready var tween = $MoveTween
 onready var platform = $Platform

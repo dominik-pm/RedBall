@@ -14,7 +14,7 @@ export var gravity = 18
 export var rotation_speed = 2
 export var death_height = 1000
 export var level_finished_damp = 0.99
-export var rotation_fade_speed = 0.2
+export var rotation_fade_speed = 0.1
 
 const UP = Vector2(0, -1)
 var velocity = Vector2(0,0)
